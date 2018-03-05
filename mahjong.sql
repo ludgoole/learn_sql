@@ -23,16 +23,26 @@ INSERT INTO `rooms` VALUES (123456, 40);
 INSERT INTO `rooms` VALUES (223487, 22); 
 
 -- ----------------------------
--- update table
+-- select value
 -- ----------------------------
-UPDATE `user` SET name ='q1u48dhew87hjfc9ee' WHERE userId = 234;
+SELECT userId name FROM `users`; --多选
+SELECT * FROM `users` WHERE userId = 234 ORDER BY name ; --默认增序
+SELECT * FROM `users` WHERE LIKE '_4'; --包含4
+
+SELECT DSTINCT gem FROM `rooms`; --去重
+SELECT * FROM `rooms` WHERE gem > 40 AND gem < 100 ORDER BY name DESC; --降序
+SELECT * FROM `rooms` WHERE LIKE '4%'; --4开头
+
+-- ----------------------------
+-- update value
+-- ----------------------------
+UPDATE `users` SET name ='q1u48dhew87hjfc9ee' WHERE userId = 234;
 
 UPDATE `rooms` SET gem ='80' WHERE roomId = 123456;
 
 -- ----------------------------
--- select vaule
+-- delete value
 -- ----------------------------
-SELECT DSTINCT name FROM `user`; --去重
-SELECT * FROM `user` WHERE userId = 234 AND userId >= 123 ORDER BY name DESC; --降序(默认增序)
-SELECT * FROM `user` WHERE LIKE '_4'; --含4
+DELETE FROM `users` WHERE userId = 234;
 
+DELETE FROM `rooms` WHERE roomId = 123456;
